@@ -1,4 +1,4 @@
-package it.unibo.inner;
+package it.unibo.inner.impl;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -6,12 +6,12 @@ import java.util.NoSuchElementException;
 import it.unibo.inner.api.IterableWithPolicy;
 import it.unibo.inner.api.Predicate;
 
-public class IterablePlainImpl<T> implements IterableWithPolicy<T>{
+public class IterableImpl<T> implements IterableWithPolicy<T>{
 
     final private T[] array;
     private Predicate<T> predicate;
 
-    public IterablePlainImpl(T[] array){
+    public IterableImpl(T[] array){
         this(array, new Predicate<T>() {
 
             @Override
@@ -21,7 +21,7 @@ public class IterablePlainImpl<T> implements IterableWithPolicy<T>{
             
         });
     }
-    public IterablePlainImpl(T[] array, Predicate<T> filter){
+    public IterableImpl(T[] array, Predicate<T> filter){
         this.array = array;
         setIterationPolicy(filter);
     }
